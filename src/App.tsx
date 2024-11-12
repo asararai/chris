@@ -6,7 +6,7 @@ function App() {
 
 
   return (
-    <div style={{border:"3px solid green", width:"100vw"}}>
+    <div style={{ width:"100vw"}}>
       <Test />
     </div>
   )

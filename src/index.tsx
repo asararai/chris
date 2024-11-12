@@ -1,42 +1,59 @@
-import { Container } from "@mui/material"
+import { Box, Container, Grid2 } from "@mui/material"
 import { styled } from '@mui/material/styles'
-import Checkbox from '@mui/material/Checkbox';
-
-const MyComponent = styled('div')({
-  color: 'green',
-  backgroundColor: 'aliceblue',
-  padding: 8,
-  borderRadius: 4,
-});
 
 
-const MyThemeComponent = styled('div')(({ theme }) => ({
-  color: theme.palette.primary.contrastText,
-  backgroundColor: theme.palette.primary.dark,
-  padding: theme.spacing(1),
-  borderRadius: 50,
-}));
+type Indentation = "indent" | "outdent" | "flat"
+type Surface = "concave" | "convex" | "flat"
 
-const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
-  color: theme.status.danger,
-  '&.Mui-checked': {
-    color: theme.status.danger,
-  },
+interface NeuBoxProps {
+  indentation?: Indentation
+  surface?: Surface
+  color?: "white" | "blue"
+}
+
+const NeuBox = styled(Box)<NeuBoxProps>(({ theme, indentation = "flat", surface = "flat", color = "white" }) => ({
+  background: theme.surface[color][surface],
+  boxShadow: theme.indentation[color][indentation],
+  flexGrow: 1,
+  margin: 20,
+  padding: 20,
+  borderRadius: 20, minHeight: 200
 }));
 
 
-const MyTestDiv = styled('div')(({ theme }) => ({
-  ...theme.testCss
-}));
 
 export const Test = () => {
   return (
-    <Container style={{border:"3px solid blue", width:"100%"}} >
-      <p>fsfsdf</p>
-      <MyComponent>Styled div</MyComponent>
-      <MyThemeComponent>MyThemeComponent23</MyThemeComponent>
-      <CustomCheckbox defaultChecked />
-      <MyTestDiv>MyTestDiv</MyTestDiv>
+    <Container style={{ width: "100%" }} >
+      <h1>dfgdg</h1>
+      <NeuBox indentation="indent" surface="flat" color="white">MyTestDiv
+        <Grid2 container columns={2}>
+          <NeuBox indentation="outdent" surface="flat" color="white">MyTestdfgdfgDiv</NeuBox>
+          <NeuBox indentation="flat" surface="flat" color="white">MyTestdfgdfgDiv</NeuBox>
+        </Grid2>
+      </NeuBox>
+      <NeuBox indentation="outdent" surface="flat" color="white">
+        <Grid2 container columns={3}>
+          <NeuBox indentation="indent" surface="flat" color="white">MyTestdfgdfgDiv</NeuBox>
+          <NeuBox indentation="flat" surface="flat" color="white">MyTestdfgdfgDiv</NeuBox>
+          <NeuBox indentation="indent" surface="flat" color="white">MyTestdfgdfgDiv</NeuBox>
+        </Grid2>
+      </NeuBox>
+      <NeuBox indentation="indent" surface="flat" color="blue">MyTestDiv</NeuBox>
+      <NeuBox indentation="indent" surface="flat" color="blue">
+        <NeuBox indentation="indent" surface="flat" color="white">MyTestdfgdfgDiv</NeuBox>
+        <NeuBox indentation="outdent" surface="concave" color="blue">MyTestDiv</NeuBox>
+        <NeuBox indentation="outdent" surface="convex" color="blue">MyTestDiv</NeuBox>
+        <NeuBox indentation="outdent" surface="flat" color="blue">MyTestDiv</NeuBox>
+      </NeuBox>
     </Container>
   )
 }
+
+
+
+
+
+
+
+
