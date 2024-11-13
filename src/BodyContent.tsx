@@ -1,5 +1,5 @@
-import { Box, Button, Container, Stack, Typography } from "@mui/material"
-import { styled } from '@mui/material/styles'
+import { Box,  Stack, Typography } from "@mui/material"
+
 import Grid from '@mui/material/Grid2';
 import { NeuBox, NeuButton, TopBox } from "./main";
 import { IconItem, TeamMember } from "./Elements";
