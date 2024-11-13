@@ -21,7 +21,7 @@ export const TypoAndContainers = () => {
 
         <div>
           <Typography variant="h1" color="primary">I'm an h1 heading</Typography>
-          <Typography variant="h1" color="secondary">I'm an h1 heading</Typography>
+
           <Typography variant="h2">I'm an h2 heading</Typography>
           <Typography variant="h3" color="primary">I'm an h3 heading</Typography>
           <Typography variant="h4" color="primary">I'm an h4 heading</Typography>
