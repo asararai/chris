@@ -166,7 +166,7 @@ export const BodyContent = () => {
                   <div>
                     <Typography variant="h6" color="primary" >Virtual Vehicle Customisation</Typography>
                     <Typography variant="body1" align="left">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio maecenas morbi consequat, cras consectetur adipiscing aliquam.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio maecenas morbi consequat, cras consectetur adipiscing aldiquam.
                       Leo dictum risus sed lacus ac amet.
                     </Typography>
                   </div>
