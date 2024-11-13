@@ -10,16 +10,6 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 
-export const StyledHero = styled("div")(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
-  overflow: "hidden",
-  position: "absolute",
-  left: 0,
-  right: 0,
-  margin: 0,
-  top: 0,
-  height: "100vh"
-}));
 
 
 export const NavBarContainer = styled("div")(({ theme }) => ({
@@ -31,21 +21,67 @@ export const NavBarContainer = styled("div")(({ theme }) => ({
 }));
 
 export const NavBar = styled("nav")(({ theme }) => ({
-  // backgroundColor: theme.palette.primary.main,
-  // // boxShadow: theme.indentation.blue.indent,
-  // borderRadius: "0px 0px 20px 20px",
+
   padding: 20,
   display:"flex",
   flexDirection:"row",
-  justifyContent:"space-between"
-
+  justifyContent:"space-between",
+  "& img":{
+    width: "150px"
+  },
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column", // Change to column layout on mobile
+    paddingLeft: 0,
+    paddingRight:0,
+    gap:10,
+    alignItems:"center",
+    "& img":{
+      width: "200px"
+        },
+  },
 }));
 
-export const HeroContent = styled("div")(({ theme }) => ({
-  // border:"1px solid green",
-  height:"calc(100% - 250px)",
-  display:"flex"
+export const NavBarBtns = styled("nav")(({ theme }) => ({
+
+  display:"flex", flexDirection:"row", gap:20,
+
+  [theme.breakpoints.down("sm")]: {
+    display:"none"
+  },
 }));
+
+
+export const StyledHero = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  overflow: "hidden",
+  // position: "absolute",
+  left: 0,
+  right: 0,
+  margin: 0,
+  top: 0,
+  minHeight: "auto",
+  height:"100vh",
+  display:"flex",
+  flexDirection:"column",
+  [theme.breakpoints.down("sm")]: {
+    height:"auto",
+    "& h4":{
+      display:"none"
+        },
+
+    "& h2":{
+      fontSize:"3em"
+        },
+        // height: "fit-content",
+  },
+}));
+
+// export const HeroContent = styled("div")(({ theme }) => ({
+//   border:"3px solid green",
+//   // height:"calc(100% - 250px)",
+//   minHeight:"1050%",
+//   display:"flex"
+// }));
 
 
 export const Hero = () => {
@@ -55,18 +91,18 @@ export const Hero = () => {
         <Container>
           <NavBar>
             <div style={{display:"flex", flexDirection:"row", gap:20}}>
-            <img src={`/peerbyte_xr_logo.png`} style={{ width: "150px" }} />
+            <img src={`/peerbyte_xr_logo.png`}  />
             </div>
-            <div style={{display:"flex", flexDirection:"row", gap:20}}>
+            <NavBarBtns>
               <NeuButton indentation="outdent" surface="flat" variant="white" shadowColor="white"> Click me </NeuButton>
               <NeuButton indentation="outdent" surface="flat" variant="white" shadowColor="white"> Click me </NeuButton>
               <NeuButton indentation="outdent" surface="flat" variant="blue" shadowColor="white"> Click me </NeuButton>
-            </div>
+            </NavBarBtns>
           </NavBar>
         </Container>
       </NavBarContainer>
-      <HeroContent>
-        <Container style={{padding:40}} >
+      {/* <HeroContent> */}
+        <Container style={{padding:40, height:"100%",  margin:"auto !important"}} >
           <div style={{  minHeight:"100%",display:"flex" }}>
             <div style={{margin:"auto",display:"flex", flexDirection:"column"}}>
               <Typography variant="h4" color="secondary">
@@ -86,7 +122,7 @@ export const Hero = () => {
             </div>
           </div>
         </Container>
-      </HeroContent>
+      {/* </HeroContent> */}
     </StyledHero>
   )
 }

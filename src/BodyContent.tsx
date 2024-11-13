@@ -14,17 +14,17 @@ export const BodyContent = () => {
       <TopBox p={5} >
         <Stack spacing={3}>
           <Box>
-            <Typography variant="h3" color="primary">Revolutionary data analysis and <br /> visualization</Typography>
+            <Typography variant="h4" color="primary">Revolutionary data analysis and <br /> visualization</Typography>
             {/* <Typography variant="h4" color="primary">I'm an h4 heading</Typography> */}
           </Box>
           <Grid container spacing={4} columns={12}>
-            <Grid size={6} >
+            <Grid size={{sm:12, md:6}}>
               <NeuBox indentation="indent" surface="flat" variant="white" />
             </Grid>
-            <Grid size={6}>
+            <Grid size={{sm:12, md:6}}>
               <Stack spacing={3} textAlign={"right"}>
                 <Typography variant="body1" align="right">
-                  Lorem ipsum dol76[]'\or sit amet, consectetur adipiscing elit. Odio maecenas morbi consequat, cras consectetur adipiscing aliquam.
+                  Lorem ipsum dol or sit amet, consectetur adipiscing elit. Odio maecenas morbi consequat, cras consectetur adipiscing aliquam.
                   Leo dictum risus sed lacus ac amet. Ridiculus eu sem nisl eu congue. Penatibus hac faucibus enim, in lacus, scelerisque vel in dictum. Suspendisse tincidunt condimentum aliquet ac ut. Lectus tin
                   <br />
                   cidunt mauris suspendisse facilisis diam. A porttitor volutpat eget vel nulla. Quis ridiculus tristique sit nunc nisl id. Dictumst elementum sed egestas maecenas non ut ridiculus tincidunt condimentum
@@ -49,14 +49,14 @@ export const BodyContent = () => {
           Leo dictum risus sed lacus ac amet. Ridiculus eu sem nisl eu congue. Penatibus hac faucibus enim, in lacus, scelerisque vel in dictum. Suspendisse tincidunt condimentum aliquet ac ut. Lectus tin
         </Typography>
         <Grid container spacing={4} columns={12}>
-          <Grid size={6}>
+          <Grid size={{sm:12, md:6}}>
             <NeuBox p={4} indentation="outdent" surface="convex" variant="blue" shadowColor="white">   <div>
               <Typography align="left" variant="h4" color="secondary"><strong>$0.21 bn</strong></Typography>
               <Typography align="left" variant="h5" color="secondary" style={{ lineHeight: 1.1 }}>Investment in 2017</Typography>
             </div>
             </NeuBox>
           </Grid>
-          <Grid size={6}>
+          <Grid size={{sm:12, md:6}}>
             <NeuBox p={4} indentation="outdent" surface="convex" variant="blue" shadowColor="white">   <div>
               <Typography align="left" variant="h4" color="secondary"><strong>$673.6 bn</strong></Typography>
               <Typography align="left" variant="h5" color="secondary" style={{ lineHeight: 1.1 }}>Forecast Investment in 2025</Typography>
@@ -80,7 +80,7 @@ export const BodyContent = () => {
             <Typography variant="h4" color="primary">I'm an h4 heading</Typography>
           </Box>
           <Grid container spacing={4} columns={12}>
-            <Grid size={6}>
+            <Grid size={{sm:12, md:6}}>
               <Stack spacing={3} textAlign={"right"} pt={2}>
                 <IconItem title={"Human Machine Interface (HMI)"} />
                 <IconItem title={"In-Vehicle Onboarding System (IVO)"} />
@@ -97,7 +97,7 @@ export const BodyContent = () => {
                 </div>
               </Stack>
             </Grid>
-            <Grid size={6}>
+            <Grid size={{sm:12, md:6}}>
               <NeuBox indentation="indent" surface="flat" variant="white" />
             </Grid>
           </Grid>
@@ -129,10 +129,10 @@ export const BodyContent = () => {
             <Typography variant="h4" color="primary">Icras consectetur adipiscing aliquam</Typography>
           </Box>
           <Grid container spacing={4} columns={12}>
-            <Grid size={6}>
+            <Grid size={{sm:12, md:6}}>
               <NeuBox indentation="indent" surface="flat" variant="white" />
             </Grid>
-            <Grid size={6}>
+            <Grid size={{sm:12, md:6}}>
               <Stack spacing={3} textAlign={"right"} pt={2}>
                 <IconItem title={"Remote Support and Diagnostics"} />
                 <IconItem title={"Real-time Visual Instructions"} />
@@ -158,10 +158,10 @@ export const BodyContent = () => {
         <Stack spacing={4} >
           <NeuBox indentation="outdent" surface="flat" variant="white" >
             <Grid container spacing={4} columns={2}>
-              <Grid size={1}>
+              <Grid size={{sm:12, md:6}}>
                 <NeuBox indentation="flat" surface="flat" variant="white" />
               </Grid>
-              <Grid size={1}>
+              <Grid size={{sm:12, md:6}}>
                 <Stack p={3} spacing={2} textAlign={"left"}>
                   <div>
                     <Typography variant="h6" color="primary" >Virtual Vehicle Customisation</Typography>
@@ -180,10 +180,10 @@ export const BodyContent = () => {
           </NeuBox>
           <NeuBox indentation="outdent" surface="flat" variant="white" >
             <Grid container spacing={4} columns={2}>
-              <Grid size={1}>
+              <Grid size={{sm:12, md:6}}>
                 <NeuBox indentation="flat" surface="flat" variant="white" />
               </Grid>
-              <Grid size={1}>
+              <Grid size={{sm:12, md:6}}>
                 <Stack p={3} spacing={2} textAlign={"left"}>
                   <div>
                     <Typography variant="h6" color="primary" >Asset Optimization</Typography>
@@ -202,10 +202,10 @@ export const BodyContent = () => {
           </NeuBox>
           <NeuBox indentation="outdent" surface="flat" variant="white" >
             <Grid container spacing={4} columns={2}>
-              <Grid size={1}>
+              <Grid size={{sm:12, md:6}}>
                 <NeuBox indentation="flat" surface="flat" variant="white" />
               </Grid>
-              <Grid size={1}>
+              <Grid size={{sm:12, md:6}}>
                 <Stack p={3} spacing={2} textAlign={"left"}>
                   <div>
                     <Typography variant="h6" color="primary" >3D Scanning and Photogrammetry Services </Typography>

@@ -87,7 +87,7 @@ export const IconItem: React.FC<any> = ({textAlign="left",  title="missing", inf
 
 export const TeamMember: React.FC<any> = ({ id }) => {
   return (
-    <Grid size={1}>
+    <Grid size={{sm:12, md:1}}>
       <img src={`/t${id + 1}.png`} style={{ width: "100%" }} />
       <div>
         <Typography variant="body1" color="secondary"><strong>Thomas Mayer</strong></Typography>

@@ -216,8 +216,13 @@ export const TopBox = styled(Box)<any>(({ theme  }) => ({
   boxShadow: "8px 8px 16px rgba(0, 0, 0, 0.20), -8px 5px 16px 0 rgba(255, 255, 255, 0.30)",
   borderRadius: 20,
   textTransform:"none",
-  marginTop:"calc(100vh - 200px) !important",
-  zIndex:9999
+  // marginTop:"calc(100vh - 200px) !important",
+  marginTop:"-100px  !important",
+  zIndex:9999,
+  [theme.breakpoints.down("sm")]: {
+    // marginTop:"calc(100vh + 30px) !important",
+    marginTop:"70px !important"
+  },
 }));
 
 

@@ -17,9 +17,9 @@ function App() {
 
   return (
     <>
-
+   <Hero />
       <MainContainer >
-        <Hero />
+     
         <BodyContent />
         {/* <TypoAndContainers /> */}
         
