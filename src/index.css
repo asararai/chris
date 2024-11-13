@@ -25,13 +25,16 @@ a:hover {
 
 body {
   margin: 0;
+  /* margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; */
 }
 
-h1 {
+
+
+/* h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
@@ -54,12 +57,14 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #000000;
     background-color: #e0e0e0;
+    /* box-shadow: inset 8px 8px 16px ${PALETTE.WHITE.SHADOW_DARK}, inset -8px -8px 16px ${PALETTE.WHITE.SHADOW_DARK}; */
+    /* border:3px solid red; */
   }
   a:hover {
     color: #747bff;

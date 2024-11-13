@@ -3,22 +3,21 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
+import { Box, Button } from "@mui/material";
 
 const PALETTE = {
   WHITE: {
     MAIN: "#e0e0e0",
     GRADIENT_DARK: "#CACACA",
     GRADIENT_LIGHT: "#F0F0F0",
-
     SHADOW_LIGHT: "#ffffff",
     SHADOW_DARK: "#bebebe"
   },
-  blue: {
+  BLUE: {
     MAIN: "#3C00FF",
     GRADIENT_DARK: "#3600e6",
     GRADIENT_LIGHT: "#4000ff",
-
     SHADOW_LIGHT: "#5200ff",
     SHADOW_DARK: "#2600a1",
   }
@@ -30,10 +29,10 @@ const SURFACE = {
     concave: `linear-gradient(145deg, ${PALETTE.WHITE.GRADIENT_DARK}, ${PALETTE.WHITE.GRADIENT_LIGHT})`,
     convex: `linear-gradient(145deg, ${PALETTE.WHITE.GRADIENT_LIGHT}, ${PALETTE.WHITE.GRADIENT_DARK})`,
   },
- blue: {
-    flat: `${PALETTE.blue.MAIN}`,
-    concave: `linear-gradient(145deg, ${PALETTE.blue.GRADIENT_DARK}, ${PALETTE.blue.GRADIENT_LIGHT})`,
-    convex: `linear-gradient(145deg, ${PALETTE.blue.GRADIENT_LIGHT},${PALETTE.blue.GRADIENT_DARK});`,
+  blue: {
+    flat: `${PALETTE.BLUE.MAIN}`,
+    concave: `linear-gradient(145deg, ${PALETTE.BLUE.GRADIENT_DARK}, ${PALETTE.BLUE.GRADIENT_LIGHT})`,
+    convex: `linear-gradient(145deg, ${PALETTE.BLUE.GRADIENT_LIGHT},${PALETTE.BLUE.GRADIENT_DARK});`,
   }
 }
 
@@ -43,10 +42,10 @@ const INDENTATION = {
     outdent: `8px 8px 16px ${PALETTE.WHITE.SHADOW_DARK}, -8px -8px 16px ${PALETTE.WHITE.SHADOW_LIGHT}`,
     indent: `inset 8px 8px 16px ${PALETTE.WHITE.SHADOW_DARK}, inset -8px -8px 16px ${PALETTE.WHITE.SHADOW_DARK}`,
   },
- blue: {
+  blue: {
     flat: "none",
-    outdent: `8px 8px 16px ${PALETTE.blue.SHADOW_DARK}, -8px -8px 16px ${PALETTE.blue.SHADOW_LIGHT}`,
-    indent: `inset 8px 8px 16px ${PALETTE.blue.SHADOW_DARK}, inset -8px -8px 16px ${PALETTE.blue.SHADOW_DARK}`
+    outdent: `8px 8px 16px ${PALETTE.BLUE.SHADOW_DARK}, -8px -8px 16px ${PALETTE.BLUE.SHADOW_LIGHT}`,
+    indent: `inset 8px 8px 16px ${PALETTE.BLUE.SHADOW_DARK}, inset -8px -8px 16px ${PALETTE.BLUE.SHADOW_DARK}`
   }
 }
 
@@ -70,7 +69,7 @@ export const DENTED_BOXES = {
       boxShadow: INDENTATION.white.indent
     }
   },
- blue: {
+  blue: {
     outdent_flat: {
       backgroundColor: SURFACE.blue.flat,
       boxShadow: INDENTATION.blue.outdent
@@ -102,7 +101,7 @@ declare module '@mui/material/styles' {
         outdent: string;
         indent: string;
       };
-     blue: {
+      blue: {
         flat: string;
         outdent: string;
         indent: string;
@@ -113,8 +112,8 @@ declare module '@mui/material/styles' {
         flat: string;
         concave: string;
         convex: string;
-      },
-     blue: {
+      };
+      blue: {
         flat: string;
         concave: string;
         convex: string;
@@ -131,7 +130,7 @@ declare module '@mui/material/styles' {
         outdent: string;
         indent: string;
       };
-     blue: {
+      blue: {
         flat: string;
         outdent: string;
         indent: string;
@@ -142,8 +141,8 @@ declare module '@mui/material/styles' {
         flat: string;
         concave: string;
         convex: string;
-      },
-     blue: {
+      };
+      blue: {
         flat: string;
         concave: string;
         convex: string;
@@ -157,7 +156,19 @@ const theme = createTheme({
     danger: "red",
   },
   indentation: { ...INDENTATION },
-  surface: { ...SURFACE }
+  surface: { ...SURFACE },
+  typography: {
+    fontFamily: "Rubik, sans-serif",
+    fontWeightRegular:200
+  },
+  palette: {
+    primary: {
+      main: PALETTE.BLUE.MAIN
+    },
+    secondary:{
+      main:PALETTE.WHITE.MAIN
+    }
+  }
 });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -171,8 +182,48 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 
 
+type Indentation = "indent" | "outdent" | "flat"
+type Surface = "concave" | "convex" | "flat"
+type ColorVariant = "white" | "blue"
+
+interface NeuBoxProps {
+  indentation?: Indentation
+  surface?: Surface
+  variant?: ColorVariant
+  shadowColor?:ColorVariant
+}
+
+export const NeuBox = styled(Box)<any>(({ theme, indentation = "flat", surface = "flat", variant = "white", shadowColor }) => ({
+  background: theme.surface[variant][surface],
+  boxShadow: theme.indentation?.[shadowColor]?.[indentation] || theme.indentation?.[variant]?.[indentation],
+  flexGrow: 1,
+  borderRadius: 20,
+  minHeight: "100%",
+  boxSizing: "border-box"
+}));
+
+export const NeuButton = styled(Button)<any>(({ theme, indentation = "flat", surface = "flat", variant = "white", shadowColor  }) => ({
+  background: theme.surface[variant][surface],
+  boxShadow: theme.indentation?.[shadowColor]?.[indentation] || theme.indentation?.[variant]?.[indentation],
+  borderRadius: 20,
+  color:variant === "white" ? "blue" : "white",
+  textTransform:"none"
+}));
 
 
+export const TopBox = styled(Box)<any>(({ theme  }) => ({
+  background: "#e0e0e0",
+  boxShadow: "8px 8px 16px rgba(0, 0, 0, 0.20), -8px 5px 16px 0 rgba(255, 255, 255, 0.30)",
+  borderRadius: 20,
+  textTransform:"none",
+  marginTop:"calc(100vh - 200px) !important",
+  zIndex:9999
+}));
 
 
+//blue shadow 5200ff
 
+// outdent: `8px 8px 16px ${PALETTE.WHITE.SHADOW_DARK}, -8px -8px 16px 0 rgba(255, 255, 255, 0.1),
+
+
+// box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.17), -8px -8px 16px 0 rgba(255, 255, 255, 0.1);
